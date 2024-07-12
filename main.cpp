@@ -13,7 +13,7 @@ int main(int argc, char ** argv)
 
     char c[10] = "aoeuhsq";
     auto f = slice_from_dt<char>(c, 1, 4);
-    for(int i = 0; i <= 4; i++)
+    for(int i = 0; i <= 3; i++)
     {
         std::cout << *(f+i) << std::endl;
     }

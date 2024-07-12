@@ -38,19 +38,21 @@ T * slice_from_dt(T * f, int r1, int r2)
         std::memcpy(p, f, r1); // copy from f to p; p1 count bytes
         return p;
     } else {
-        T * p = new T[sizeof(f)];
         stack<T> * s = new stack<T>;
         for(int i = r1; i <= r2; i++)
         {
             s->push(f[i]);
         }
-        for(int i = 0; s->ptr[i]; i++)
+        T * np = new T[s->index];
+        for(int i = 0; i < s->index; i++)
         {
-            p[i] = s->ptr[i];
+            if(s->ptr[i] != 0)
+            {
+                np[i] = s->ptr[i];
+            }
         }
         delete s;
-        return p;
+        return np;
     }
 }
-
 #endif SLICE_H
